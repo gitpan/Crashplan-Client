@@ -19,4 +19,10 @@ t/30-computerusages.t
 t/manifest.t
 t/pod-coverage.t
 t/pod.t
+t/responses/computers.cp
+t/responses/computerusage.cp
+t/responses/mountpoints.cp
+t/responses/orgs.cp
+t/responses/serverstats.cp
+t/responses/users.cp
 META.yml                                 Module meta-data (added by MakeMaker)

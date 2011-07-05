@@ -1,5 +1,8 @@
 Revision history for Crashplan-Client
 
-0.01    Date/time
+0.01    2011-07-05 17:17
         First version, released on an unsuspecting world.
 
+0.01_2  2011-07-05 17:37
+        Fix package (missing files for test)
+        Tag version as experimental
