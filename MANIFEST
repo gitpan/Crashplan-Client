@@ -1,0 +1,22 @@
+Changes
+MANIFEST
+Makefile.PL
+README
+lib/Crashplan/Client.pm
+lib/Crashplan/Client/ArchiveRecord.pm
+lib/Crashplan/Client/Computer.pm
+lib/Crashplan/Client/ComputerUsage.pm
+lib/Crashplan/Client/MountPoint.pm
+lib/Crashplan/Client/Org.pm
+lib/Crashplan/Client/ServerStatistics.pm
+lib/Crashplan/Client/User.pm
+t/00-load.t
+t/10-network.t
+t/15-orgs.t
+t/20-users.t
+t/25-computers.t
+t/30-computerusages.t
+t/manifest.t
+t/pod-coverage.t
+t/pod.t
+META.yml                                 Module meta-data (added by MakeMaker)
