@@ -3,12 +3,12 @@ Crashplan-Client
 This is the README file for Crashplan::Client, which allow you to interact 
 with a Crashplan PROe server.
 
-See the documentation and the Synopis for how to use.
+See the documentation and the Synopsis for how to use.
 (t/10-network might be handy too..)
 
 This module is at EXPERIMENTAL stage, so use with caution.
-The API might change, and a more functional API will be
-added in a near future.
+The API might change, and a more functional API is still being
+added.
 
 INSTALLATION
 

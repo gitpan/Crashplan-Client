@@ -56,3 +56,4 @@ for my $org (@orgs) {
     is($org->creationDate,'2011-05-27T18:11:16.932+02:00');
     is($org->modificationDate,'2011-07-02T18:56:41.567+02:00');
 }
+

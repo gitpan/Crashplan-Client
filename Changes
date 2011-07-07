@@ -6,3 +6,13 @@ Revision history for Crashplan-Client
 0.01_2  2011-07-05 17:37
         Fix package (missing files for test)
         Tag version as experimental
+
+0.02_0  2011-07-06 18:30
+        Fix typos
+        Start adding the new highlevel API 
+            users()
+            user($id)
+            orgs()
+            org($id)
+            computers()
+            computer($id)

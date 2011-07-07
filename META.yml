@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name:               Crashplan-Client
-version:            0.001_1
-abstract:           The great new Crashplan::Client!
+version:            0.002_0
+abstract:           Client to the Crashplan PROe server 
 author:
     - Arnaud (Arhuman) ASSAD <arnaud.assad@jaguar-network.com>
 license:            perl
