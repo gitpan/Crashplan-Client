@@ -3,7 +3,7 @@ package Crashplan::Client::MountPoint;
 use strict;
 use warnings;
 
-our $VERSION = '0.002_0';
+our $VERSION = '0.003_0';
 
 =head1 NAME
 
@@ -220,6 +220,10 @@ sub type {
 
     return $self->{type};
 }
+
+=head1 SEE ALSO
+
+http://support.crashplanpro.com/doku.php/api#mountpoint
 
 =head1 AUTHOR
 

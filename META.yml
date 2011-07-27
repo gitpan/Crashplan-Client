@@ -1,26 +1,48 @@
---- #YAML:1.0
-name:               Crashplan-Client
-version:            0.002_0
-abstract:           Client to the Crashplan PROe server 
+---
+abstract: 'Client to the Crashplan PROe server'
 author:
-    - Arnaud (Arhuman) ASSAD <arnaud.assad@jaguar-network.com>
-license:            perl
-distribution_type:  module
+  - 'Arnaud (Arhuman) ASSAD <arnaud.assad@jaguar-network.com>'
+build_requires: {}
 configure_requires:
-    ExtUtils::MakeMaker:  0
-build_requires:
-    ExtUtils::MakeMaker:  0
-requires:
-    Carp:          0
-    JSON:          0
-    MIME::Base64:  0
-    REST::Client:  0
-    Test::More:    0
-no_index:
-    directory:
-        - t
-        - inc
-generated_by:       ExtUtils::MakeMaker version 6.55_02
+  Module::Build: 0.38
+dynamic_config: 1
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.110930'
+license: perl
 meta-spec:
-    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
-    version:  1.4
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Crashplan-Client
+provides:
+  Crashplan::Client:
+    file: lib/Crashplan/Client.pm
+    version: 0.003_0
+  Crashplan::Client::ArchiveRecord:
+    file: lib/Crashplan/Client/ArchiveRecord.pm
+    version: 0.003_0
+  Crashplan::Client::Computer:
+    file: lib/Crashplan/Client/Computer.pm
+    version: 0.003_0
+  Crashplan::Client::ComputerUsage:
+    file: lib/Crashplan/Client/ComputerUsage.pm
+    version: 0.003_0
+  Crashplan::Client::MountPoint:
+    file: lib/Crashplan/Client/MountPoint.pm
+    version: 0.003_0
+  Crashplan::Client::Org:
+    file: lib/Crashplan/Client/Org.pm
+    version: 0.003_0
+  Crashplan::Client::ServerStatistics:
+    file: lib/Crashplan/Client/ServerStatistics.pm
+    version: 0.003_0
+  Crashplan::Client::User:
+    file: lib/Crashplan/Client/User.pm
+    version: 0.003_0
+requires:
+  Carp: 0
+  JSON: 0
+  MIME::Base64: 0
+  REST::Client: 0
+  Test::More: 0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.003_0

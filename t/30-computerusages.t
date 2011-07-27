@@ -52,6 +52,6 @@ is($cu->todoBytes,'0');
 is($cu->archiveBytes,'5438726');
 is($cu->lastActivity,'2011-07-05T03:00:54.237+02:00');
 is($cu->lastConnected,'2011-07-05T02:50:38.464+02:00');
-is($cu->isUsing,'1');
+is($cu->isUsing,'true');
 is($cu->creationDate,'2011-05-27T18:13:42.562+02:00');
 is($cu->modificationDate,'2011-07-05T02:50:38.464+02:00');

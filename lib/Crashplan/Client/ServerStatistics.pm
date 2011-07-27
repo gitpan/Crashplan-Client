@@ -3,7 +3,7 @@ package Crashplan::Client::ServerStatistics;
 use strict;
 use warnings;
 
-our $VERSION = '0.002_0';
+our $VERSION = '0.003_0';
 
 =head1 NAME
 
@@ -387,6 +387,10 @@ sub diskFree {
 
     return $self->{diskFree};
 }
+
+=head1 SEE ALSO
+
+http://support.crashplanpro.com/doku.php/api#server_statistics
 
 =head1 AUTHOR
 

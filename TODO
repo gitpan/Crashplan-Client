@@ -1,0 +1,9 @@
+* Clarify the username User's attribute present in server response but not described in the API
+* Investigate the registrationKey for org which is diplayed differently depending on how it is requested
+* Follow API change for missing features
+    _ Org creation
+    _ Delete
+    _ quota.seats writable
+    _ ...
+* Check all the POD (not in sync and not consistent anymore)
+* Refactor code (once API coverage is complete)

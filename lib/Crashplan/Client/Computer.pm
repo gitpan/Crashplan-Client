@@ -3,7 +3,7 @@ package Crashplan::Client::Computer;
 use strict;
 use warnings;
 
-our $VERSION = '0.002_0';
+our $VERSION = '0.003_0';
 
 =head1 NAME
 
@@ -352,6 +352,22 @@ sub serverBackupStatsNumberSelected {
 
     return $self->{serverBackupStatsNumberSelected};
 }
+
+=head2 url
+
+Getter for the 'url" to access the REST server
+
+=cut
+
+sub url {
+    my $self = shift;
+
+    return '/rest/computers';
+}
+
+=head1 SEE ALSO
+
+http://support.crashplanpro.com/doku.php/api#computer
 
 =head1 AUTHOR
 

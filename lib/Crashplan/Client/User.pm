@@ -2,8 +2,9 @@ package Crashplan::Client::User;
 
 use strict;
 use warnings;
+use JSON;
 
-our $VERSION = '0.002_0';
+our $VERSION = '0.003_0';
 
 =head1 NAME
 
@@ -92,6 +93,10 @@ sub firstName {
     my $self = shift;
     my $val  = shift;
 
+    if ($val) {
+        $self->{'firstName'} = $val;
+    }
+
 
     return $self->{firstName};
 }
@@ -133,7 +138,10 @@ sub archiveBytesDelta {
 sub status {
     my $self = shift;
     my $val  = shift;
-
+    
+    if ($val) {
+        $self->{'status'} = $val;
+    }
 
     return $self->{status};
 }
@@ -190,6 +198,9 @@ sub username {
     my $self = shift;
     my $val  = shift;
 
+    if ($val) {
+        $self->{'username'} = $val;
+    }
 
     return $self->{username};
 }
@@ -217,7 +228,10 @@ Email address of the user
 sub email {
     my $self = shift;
     my $val  = shift;
-
+    
+    if ($val) {
+        $self->{'email'} = $val;
+    }
 
     return $self->{email};
 }
@@ -245,7 +259,10 @@ Last name of the user
 sub lastName {
     my $self = shift;
     my $val  = shift;
-
+    
+    if ($val) {
+        $self->{'lastName'} = $val;
+    }
 
     return $self->{lastName};
 }
@@ -259,7 +276,10 @@ The id of the org to which this user belongs
 sub orgId {
     my $self = shift;
     my $val  = shift;
-
+    
+    if ($val) {
+        $self->{'orgId'} = $val;
+    }
 
     return $self->{orgId};
 }
@@ -291,6 +311,40 @@ sub todoBytes {
 
     return $self->{todoBytes};
 }
+
+=head2 update
+
+Update an User entry in the database
+
+=cut
+
+sub update {
+    my $self = shift;
+    #my @attributes = qw/name status parentId masterGuid registrationKey/;
+
+    # Filter out non REST attribute from the current object
+    my @attributes = grep {!/^rest|rest_header$/} keys %$self;
+
+    my $body = encode_json( { map {$_ => $self->{$_}} @attributes} );
+
+    $self->{rest}->PUT($self->url."/".$self->id,$body);
+}
+
+=head2 url
+
+Getter for the 'url" to access the REST server
+
+=cut
+
+sub url {
+    my $self = shift;
+
+    return '/rest/users';
+}
+
+=head1 SEE ALSO
+
+http://support.crashplanpro.com/doku.php/api#user
 
 =head1 AUTHOR
 

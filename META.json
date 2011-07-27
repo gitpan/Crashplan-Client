@@ -1,0 +1,73 @@
+{
+   "abstract" : "Client to the Crashplan PROe server",
+   "author" : [
+      "Arnaud (Arhuman) ASSAD <arnaud.assad@jaguar-network.com>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.110930",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Crashplan-Client",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.38"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Carp" : 0,
+            "JSON" : 0,
+            "MIME::Base64" : 0,
+            "REST::Client" : 0,
+            "Test::More" : 0
+         }
+      }
+   },
+   "provides" : {
+      "Crashplan::Client" : {
+         "file" : "lib/Crashplan/Client.pm",
+         "version" : "0.003_0"
+      },
+      "Crashplan::Client::ArchiveRecord" : {
+         "file" : "lib/Crashplan/Client/ArchiveRecord.pm",
+         "version" : "0.003_0"
+      },
+      "Crashplan::Client::Computer" : {
+         "file" : "lib/Crashplan/Client/Computer.pm",
+         "version" : "0.003_0"
+      },
+      "Crashplan::Client::ComputerUsage" : {
+         "file" : "lib/Crashplan/Client/ComputerUsage.pm",
+         "version" : "0.003_0"
+      },
+      "Crashplan::Client::MountPoint" : {
+         "file" : "lib/Crashplan/Client/MountPoint.pm",
+         "version" : "0.003_0"
+      },
+      "Crashplan::Client::Org" : {
+         "file" : "lib/Crashplan/Client/Org.pm",
+         "version" : "0.003_0"
+      },
+      "Crashplan::Client::ServerStatistics" : {
+         "file" : "lib/Crashplan/Client/ServerStatistics.pm",
+         "version" : "0.003_0"
+      },
+      "Crashplan::Client::User" : {
+         "file" : "lib/Crashplan/Client/User.pm",
+         "version" : "0.003_0"
+      }
+   },
+   "release_status" : "testing",
+   "resources" : {
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ]
+   },
+   "version" : "0.003_0"
+}

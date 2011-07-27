@@ -3,7 +3,7 @@ package Crashplan::Client::ComputerUsage;
 use strict;
 use warnings;
 
-our $VERSION = '0.002_0';
+our $VERSION = '0.003_0';
 
 =head1 NAME
 
@@ -247,6 +247,10 @@ sub todoBytes {
 
     return $self->{todoBytes};
 }
+
+=head1 SEE ALSO
+
+http://support.crashplanpro.com/doku.php/api#computerusage
 
 =head1 AUTHOR
 

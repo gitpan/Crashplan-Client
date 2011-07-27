@@ -2,8 +2,9 @@ package Crashplan::Client::Org;
 
 use strict;
 use warnings;
+use JSON;
 
-our $VERSION = '0.002_0';
+our $VERSION = '0.003_0';
 
 =head1 NAME
 
@@ -38,13 +39,41 @@ sub new {
     my %converted_name = (
  		quotaSeats => 'quota.seats', 
  		quotaBytes => 'quota.bytes', 
-
     );
 
     my $self  = $param;
 
-
     return bless $param,'Crashplan::Client::Org';
+}
+
+=head2 update
+
+Update an Org entry in the database
+
+=cut
+
+sub update {
+    my $self = shift;
+    #my @attributes = qw/name status parentId masterGuid registrationKey/;
+
+    # Filter out non REST attribute from the current object
+    my @attributes = grep {!/^rest|rest_header$/} keys %$self;
+
+    my $body = encode_json( { map {$_ => $self->{$_}} @attributes} );
+
+    $self->{rest}->PUT($self->url."/".$self->id,$body);
+}
+
+=head2 delete
+
+Delete an Org entry in the database (not yet handled by the REST server)
+
+=cut
+
+sub delete {
+    my $self = shift;
+
+    $self->{rest}->DELETE($self->url."/".$self->id);
 }
 
 =head2 id
@@ -91,8 +120,6 @@ Change in the number of bytes stored in all archiveswithin the org over 30 days
 
 sub archiveBytesDeltaMonth {
     my $self = shift;
-    my $val  = shift;
-
 
     return $self->{archiveBytesDeltaMonth};
 }
@@ -105,14 +132,13 @@ Change in the number of bytes stored in all archiveswithin the org
 
 sub archiveBytesDelta {
     my $self = shift;
-    my $val  = shift;
-
 
     return $self->{archiveBytesDelta};
 }
 
-=head2 status
+=head2 status (['Active'|'Deactivated'])
 
+Getter/setter for the status property.
 “Active” if the org is currently active, “Deactivated” if the org has beendeactivated
 
 =cut
@@ -121,6 +147,10 @@ sub status {
     my $self = shift;
     my $val  = shift;
 
+    if ($val) {
+        $self->{status} = $val;
+        #$self->{rest}->PUT
+    }
 
     return $self->{status};
 }
@@ -133,8 +163,6 @@ Configured size quota for this org (in gigabytes)
 
 sub quotaBytes {
     my $self = shift;
-    my $val  = shift;
-
 
     return $self->{quotaBytes};
 }
@@ -147,22 +175,23 @@ sub quotaBytes {
 
 sub dailyChange {
     my $self = shift;
-    my $val  = shift;
-
 
     return $self->{dailyChange};
 }
 
-=head2 name
+=head2 name([$name])
 
-Current name of the org
+Setter/getter for the current name of the org
 
 =cut
 
 sub name {
     my $self = shift;
     my $val  = shift;
-
+    
+    if ($val) {
+        $self->{'name'} = $val;
+    }
 
     return $self->{name};
 }
@@ -204,9 +233,12 @@ Configured seat quota for this org
 sub quotaSeats {
     my $self = shift;
     my $val  = shift;
+    
+    if ($val) {
+        $self->{'quota.seats'} = $val;
+    }
 
-
-    return $self->{quotaSeats};
+    return $self->{'quota.seats'};
 }
 
 =head2 archiveBytes
@@ -232,7 +264,10 @@ The id value of the parent org or null if this org has no parent
 sub parentId {
     my $self = shift;
     my $val  = shift;
-
+    
+    if ($val) {
+        $self->{'parentId'} = $val;
+    }
 
     return $self->{parentId};
 }
@@ -275,6 +310,10 @@ sub registrationKey {
     my $self = shift;
     my $val  = shift;
 
+    #TODO : Invetigate, tests are not working (value not set)
+    if ($val) {
+        $self->{'registrationKey'} = $val;
+    }
 
     return $self->{registrationKey};
 }
@@ -288,10 +327,30 @@ If not null then this org is a slave org and the value of this field contains th
 sub masterGuid {
     my $self = shift;
     my $val  = shift;
-
+   
+    #TODO : Invetigate, tests are not working (value not set)
+    if ($val) {
+        $self->{'masterGuid'} = $val;
+    }
 
     return $self->{masterGuid};
 }
+
+=head2 url
+
+Getter for the 'url" to access the REST server
+
+=cut
+
+sub url {
+    my $self = shift;
+
+    return '/rest/orgs';
+}
+
+=head1 SEE ALSO
+
+http://support.crashplanpro.com/doku.php/api#org
 
 =head1 AUTHOR
 
